@@ -1,0 +1,3 @@
+[tests]
+script.testcases.message.MessageTest.testSendMMSWithVideo = 2
+script.testcases.message.MessageTest.testSendMMSWithPics = 2

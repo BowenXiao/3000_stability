@@ -1,0 +1,62 @@
+[tests]
+script.testcases.telephony.TelephonyTest.testSwitchMobileNetWorkTo2G = 1
+script.testcases.telephony.TelephonyTest.testCallViaDialer2G = 25
+script.testcases.telephony.TelephonyTest.testCallViaCallLog2G = 50
+script.testcases.telephony.TelephonyTest.testCallViaPhoneBook2G = 25
+script.testcases.telephony.TelephonyTest.testSwitchMobileNetWorkTo3G = 1
+script.testcases.telephony.TelephonyTest.testCallViaDialer3G = 25
+script.testcases.telephony.TelephonyTest.testCallViaCallLog3G = 50
+script.testcases.telephony.TelephonyTest.testCallViaPhoneBook3G = 25
+script.testcases.telephony.TelephonyTest.testAddDelContact = 20
+
+script.testcases.message.MessageTest.testSendSMSWithMaxChar = 20
+script.testcases.message.MessageTest.testReadSMS = 50
+script.testcases.message.MessageTest.testSendMMSWithVideo = 3
+script.testcases.message.MessageTest.testReadMMSVideo = 50
+script.testcases.message.MessageTest.testSendMMSWithPics = 5
+script.testcases.message.MessageTest.testReadMMSPics = 50
+
+script.testcases.browser.BrowserTest.testVisitWebPage = 20
+script.testcases.browser.BrowserTest.testWebNavigation = 20
+script.testcases.browser.BrowserTest.testVisitTop5 = 10
+script.testcases.browser.BrowserTest.testDownloadPics = 5
+script.testcases.browser.BrowserTest.testDownloadAudio = 5
+script.testcases.browser.BrowserTest.testDownloadVideo = 5
+script.testcases.browser.BrowserTest.testPlayStreamingVideo = 5
+
+script.testcases.email.EmailTest.testSendEmailNoAtt = 50
+script.testcases.email.EmailTest.testReadEmailNoAtt = 50
+script.testcases.email.EmailTest.testSendEmailWithAtt = 50
+script.testcases.email.EmailTest.testReadEmailWithAtt = 50
+script.testcases.email.EmailTest.testClearAccount = 1
+
+script.testcases.multimedia.MultiMediaTest.testRecordVideo = 5
+script.testcases.multimedia.MultiMediaTest.testTakePicture = 20
+script.testcases.multimedia.MultiMediaTest.testRecordAudio = 1
+script.testcases.multimedia.MultiMediaTest.testPlayMusic = 1
+
+script.testcases.pim.PIMTest.testCalendarEvent = 5
+script.testcases.pim.PIMTest.testClock = 1
+
+script.testcases.setting.SettingTest.testSetTheme = 10
+script.testcases.setting.SettingTest.testTurnOnOffWiFi = 50
+script.testcases.setting.SettingTest.testTurnOnOffBT = 20
+script.testcases.setting.SettingTest.testTurnOnOffNFC = 20
+
+script.testcases.appstore.AppStoreTest.testAppStoreDownload = 1
+script.testcases.appstore.AppStoreTest.testAppStoreOpen = 5
+script.testcases.appstore.AppStoreTest.testUninstallApp = 1
+
+script.testcases.multitask.MultiTaskTest.testLaunchMultipleApp = 10
+
+script.testcases.the3rd.The3rdTest.testWeibo = 10
+script.testcases.the3rd.The3rdTest.testWeixin = 10
+script.testcases.the3rd.The3rdTest.testNavigation = 10
+script.testcases.the3rd.The3rdTest.testGame = 10
+script.testcases.the3rd.The3rdTest.testYouku = 5
+
+#script.testcases.launcher.LauncherTest.testLauncherMultiViewRename = 10
+#script.testcases.launcher.LauncherTest.testLauncherMultiViewHide = 10
+script.testcases.launcher.LauncherTest.testScreenLockUnlock = 1
+script.testcases.launcher.LauncherTest.testSwipeScreen = 1
+script.testcases.launcher.LauncherTest.testMultiViewDrag = 1
