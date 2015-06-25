@@ -5,10 +5,6 @@ from uiautomatorplug.android import device as d
 import commands
 import util as u
 
-ACCOUNT = 'stabilitymailpost@smartisan.com'
-PASSWORD = 'Smartisantest011'
-SEND_TO = 'stabilitymailget@smartisan.com'
-#SEND_TO = 'smartisanauto@hotmail.com'
 SUBJECT = 'Test Send Email'
 ATT_SUBJECT = 'Send With Attachment'
 NOATT_SUBJECT = 'Send Without Attachment'
@@ -56,16 +52,19 @@ class EmailTest(unittest.TestCase):
 		assert d(resourceId = 'com.android.email:id/title',text = '已发送邮件').wait.exists(timeout = 5000),'Switch to sended box failed in 5s!'
 		# looping 60s to check if mail sending finished
 		for i in range(12):
-			d(resourceId = 'com.android.email:id/refresh_view').click.wait()
+			#d(resourceId = 'com.android.email:id/refresh_view').click.wait()
 			if d(descriptionContains = SUBJECT).wait.exists(timeout=5000):
 				break
 			if i == 11:
 				assert False, 'Can not send out email in 60s. '
+			d(resourceId = 'com.android.email:id/refresh_view').click.wait()
 		d(descriptionContains = SUBJECT).click.wait()
+		if d(descriptionContains = SUBJECT).exists:
+			d(descriptionContains = SUBJECT).click.wait()
 		assert d(resourceId = 'com.android.email:id/send_calendar_btn').wait.exists(timeout = 5000),'Open mail failed in 5s!'
 		d(resourceId = 'com.android.email:id/detail_delete_view').click.wait()
 		d(text = '确认删除').click.wait()
-		assert d(text = '已发送邮件').wait.exists(timeout = 5000),'Switch to sending box failed (after delete send mail) in 5s!'
+		assert d(text = '来往邮件').wait.exists(timeout = 5000),'Switch to sending box failed (after delete send mail) in 5s!'
 
 	def testReadEmailNoAtt(self):
 		#Launch Email
@@ -107,10 +106,13 @@ class EmailTest(unittest.TestCase):
 		assert d(packageName = 'com.android.gallery3d').wait.exists(timeout = 5000),'Switch to gallery view failed in 5s!'
 		d.sleep(3)
 		# select pics as attachment
-		d.click('Attachment_Into_RootDir.png')
+		#d.click('Attachment_Into_RootDir.png')
 		#d.sleep(1)
 		d.click('Attachment_Pics.png')
-		#d.sleep(1)
+		d.sleep(1)
+		#click done
+		d.click(1000,150)
+		d.sleep(1)
 		d(text = '发送').click.wait()
 		#d.sleep(1)
 		assert d(text = '设置').wait.exists(timeout = 5000),'Switch to mail list (after click send icon) failed in 5s!'
@@ -123,15 +125,18 @@ class EmailTest(unittest.TestCase):
 		# looping 60s to check if mail sending finished
 		for i in range(12):
 			d.sleep(5)
-			if d(descriptionContains = 'Auto Send.').exists:
+			if d(descriptionContains = SUBJECT).exists:
 				break
 			d(resourceId = 'com.android.email:id/refresh_view').click.wait()
 		assert d(descriptionContains = BODY).wait.exists(timeout = 1000),'Send mail does not show in send box in 5s!'
 		d(descriptionContains = BODY).click.wait()
+		if d(descriptionContains = SUBJECT).exists:
+			d(descriptionContains = SUBJECT).click.wait()
 		assert d(resourceId = 'com.android.email:id/send_calendar_btn').wait.exists(timeout = 5000),'Open mail failed in 5s!'
 		d(resourceId = 'com.android.email:id/detail_delete_view').click.wait()
 		d(text = '确认删除').click.wait()
-		assert d(text = '已发送邮件').wait.exists(timeout = 5000),'Switch to sending box failed (after delete send mail) in 5s!'
+		assert d(text = '来往邮件').wait.exists(timeout = 5000),'Switch to sending box failed (after delete send mail) in 5s!'
+
 
 	def testReadEmailWithAtt(self):
 		#Launch Email
@@ -154,8 +159,8 @@ class EmailTest(unittest.TestCase):
 		d(descriptionContains = ATT_SUBJECT).click()
 		assert d(resourceId = 'com.android.email:id/send_calendar_btn').wait.exists(timeout = 5000),'Switch to mail detail failed in 5s!'
 		# check attachment
-		if  d(text = '下载').exists:
-			d(text = '下载').click.wait()
+		if  d(text = '加载').exists:
+			d(text = '加载').click.wait()
 		assert d(text = '打开').wait.exists(timeout = 15000),'Download attachment failed in 15s!'
 		d(text = '打开').click.wait()
 		assert d(text = '选择要使用的应用').wait.exists(timeout = 5000),"'选择要使用的应用' does not pop up in 5s!"
