@@ -1,5 +1,5 @@
 nose==1.3.3
 uiautomatorplug==1.1.2
 uiautomator==0.1.31
-urllib3==1.8
+urllib3==1.24.2
 customnoseplugins==3.0.9
